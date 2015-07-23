@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Controller & Scope</title>
+</head>
+<body ng-app="ControllerExample">
+<h1> Trie commentaires</h1>
+<p>
+    Rechercher un commentaire:
+    <input type="text" ng-model="query"/>
+    {{filter}}
+
+    - Trier par:
+    <select ng-model="order">
+        <option value="username"> nom</option>
+        <option value="content"> contenu</option>
+    </select>
+</p>
+
+
+<div ng-controller="CommentsCtrl">
+    <div ng-repeat="comment in comments | filter:{content:query} | orderBy:order">
+        <p>
+            <strong>{{comment.username | uppercase}}</strong><br/>
+            {{comment.content}}
+        </p>
+    </div>
+</div>
+
+
+
+
+<script src="../angular.min.js"></script>
+<script>
+
+    var app = angular.module('ControllerExample', []);
+
+    app.controller('CommentsCtrl', function($scope) {
+        console.log($scope);
+        $scope.comments = [
+            {
+                "username": "Harper",
+                "city": "Ripley",
+                "email": "harperbarber@cytrex.com",
+                "content": "Laborum et ea anim laboris cillum sint velit laborum magna cupidatat. Tempor exercitation aliquip nulla quis. Est laborum laboris commodo velit. Quis in culpa adipisicing veniam duis id nulla ullamco et ut occaecat. Aliqua do ut aliqua consequat."
+            },
+            {
+                "username": "Raymond",
+                "city": "Bedias",
+                "email": "raymondbarber@cytrex.com",
+                "content": "Ex ex deserunt officia mollit ullamco. Est magna id enim Lorem labore commodo nostrud. Lorem dolore magna laboris nulla. Eiusmod aliqua pariatur nisi non sint officia eiusmod. Eiusmod cillum laborum ad fugiat proident."
+            },
+            {
+                "username": "Hogan",
+                "city": "Bethany",
+                "email": "hoganbarber@cytrex.com",
+                "content": "Aliqua laborum ipsum tempor nostrud eu. Quis dolor elit nisi nostrud culpa esse quis. Occaecat ipsum incididunt ut et adipisicing consequat fugiat Lorem dolore velit magna excepteur occaecat. Dolor laboris enim nulla nisi consequat minim in duis commodo ullamco. Adipisicing irure mollit anim elit cillum sint non exercitation non in."
+            },
+            {
+                "username": "Sexton",
+                "city": "Beaverdale",
+                "email": "sextonbarber@cytrex.com",
+                "content": "Ea laborum pariatur laborum est cupidatat ad dolor sit culpa ex quis veniam. Consectetur qui deserunt tempor fugiat ex fugiat. Sit sit do id aute est magna. Qui quis sint pariatur enim in nulla excepteur consectetur labore anim ex. Non commodo anim laboris exercitation anim."
+            },
+            {
+                "username": "Jasmine",
+                "city": "Cobbtown",
+                "email": "jasminebarber@cytrex.com",
+                "content": "Id amet ea ipsum pariatur irure ad minim id adipisicing nostrud laborum consequat do. Pariatur consectetur magna commodo nisi velit eu. Proident sint culpa esse in ex. Elit irure minim ad do do amet nostrud nulla ut laboris. Adipisicing incididunt reprehenderit amet proident dolor velit."
+            },
+            {
+                "username": "Isabelle",
+                "city": "Summerfield",
+                "email": "isabellebarber@cytrex.com",
+                "content": "Consectetur in veniam deserunt quis non sint cillum. Sunt duis quis minim nulla. Adipisicing ipsum minim magna tempor adipisicing ad consequat sint sunt ipsum eu. Elit labore consequat proident laborum nulla aliquip minim occaecat velit. Quis aliqua est eu enim ea."
+            }
+        ]
+    });
+
+</script>
+</body>
+</html>
