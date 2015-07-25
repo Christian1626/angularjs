@@ -5,7 +5,7 @@
     <title>Controller & Scope</title>
 </head>
 <body ng-app="ControllerExample">
-<h1> Articles </h1>
+
 
 <div ng-view ></div>
 <script src="../angular.min.js"></script>
@@ -21,109 +21,256 @@
                 .otherwise({redirectTo:'/'})
     });
 
-    app.controller('CommentsCtrl', function($scope) {
-            });
 
-    app.controller('PostsCtrl',function($scope){
-        $scope.posts=[
-            {
-                "id": 0,
-                "name": "Hometown",
-                "content": "Commodo culpa aute voluptate dolore incididunt. Nulla laboris mollit aute consequat laborum do magna amet cupidatat eu dolor in commodo dolore. Qui consectetur fugiat tempor esse anim consectetur est. Aliqua nostrud aliqua cillum proident do ad dolore consequat. Fugiat ea tempor adipisicing enim occaecat do magna duis minim ullamco incididunt aute. In ea Lorem amet culpa exercitation enim fugiat amet ex est et mollit eiusmod.",
-                "comments": [
-                    {
-                        "username": "Natalie",
-                        "city": "Baker",
-                        "email": "nataliebarber@hometown.com",
-                        "content": "Irure duis dolore pariatur ullamco anim qui anim aute enim. Eu ut anim ad aute aliquip sunt cupidatat consectetur deserunt mollit duis fugiat dolor. Quis mollit amet id magna id minim reprehenderit qui dolor consectetur. Nisi proident veniam cillum ullamco ea ad. Ut veniam excepteur id et cupidatat qui ex ea irure nulla magna qui nostrud."
-                    },
-                    {
-                        "username": "Stanley",
-                        "city": "Condon",
-                        "email": "stanleybarber@hometown.com",
-                        "content": "Nostrud ipsum ex eu adipisicing consectetur. Amet minim voluptate deserunt adipisicing voluptate irure ipsum magna sit velit sunt do voluptate sunt. Minim laborum reprehenderit adipisicing laborum reprehenderit consequat excepteur occaecat do consequat id. Nisi fugiat cillum veniam velit do labore tempor mollit nulla velit voluptate. Aliqua amet sunt magna nisi dolor."
-                    },
-                    {
-                        "username": "Byers",
-                        "city": "Rote",
-                        "email": "byersbarber@hometown.com",
-                        "content": "Labore officia elit nisi consectetur nostrud ut. Eiusmod dolore laborum velit nulla dolore proident duis labore officia veniam. Incididunt nostrud qui cupidatat ad minim amet. Exercitation magna fugiat nulla duis laborum magna non est aliqua ullamco magna adipisicing sunt pariatur. Sit magna fugiat ex duis velit velit veniam."
-                    }
-                ]
+    //factory
+   /* app.factory('PostFactory',function(){
+        var factory = {
+            posts : [
+                {
+                    "id": 0,
+                    "name": "Hometown",
+                    "content": "Commodo culpa aute voluptate dolore incididunt. Nulla laboris mollit aute consequat laborum do magna amet cupidatat eu dolor in commodo dolore. Qui consectetur fugiat tempor esse anim consectetur est. Aliqua nostrud aliqua cillum proident do ad dolore consequat. Fugiat ea tempor adipisicing enim occaecat do magna duis minim ullamco incididunt aute. In ea Lorem amet culpa exercitation enim fugiat amet ex est et mollit eiusmod.",
+                    "comments": [
+                        {
+                            "username": "Natalie",
+                            "city": "Baker",
+                            "email": "nataliebarber@hometown.com",
+                            "content": "Irure duis dolore pariatur ullamco anim qui anim aute enim. Eu ut anim ad aute aliquip sunt cupidatat consectetur deserunt mollit duis fugiat dolor. Quis mollit amet id magna id minim reprehenderit qui dolor consectetur. Nisi proident veniam cillum ullamco ea ad. Ut veniam excepteur id et cupidatat qui ex ea irure nulla magna qui nostrud."
+                        },
+                        {
+                            "username": "Stanley",
+                            "city": "Condon",
+                            "email": "stanleybarber@hometown.com",
+                            "content": "Nostrud ipsum ex eu adipisicing consectetur. Amet minim voluptate deserunt adipisicing voluptate irure ipsum magna sit velit sunt do voluptate sunt. Minim laborum reprehenderit adipisicing laborum reprehenderit consequat excepteur occaecat do consequat id. Nisi fugiat cillum veniam velit do labore tempor mollit nulla velit voluptate. Aliqua amet sunt magna nisi dolor."
+                        },
+                        {
+                            "username": "Byers",
+                            "city": "Rote",
+                            "email": "byersbarber@hometown.com",
+                            "content": "Labore officia elit nisi consectetur nostrud ut. Eiusmod dolore laborum velit nulla dolore proident duis labore officia veniam. Incididunt nostrud qui cupidatat ad minim amet. Exercitation magna fugiat nulla duis laborum magna non est aliqua ullamco magna adipisicing sunt pariatur. Sit magna fugiat ex duis velit velit veniam."
+                        }
+                    ]
+                },
+                {
+                    "id": 1,
+                    "name": "Zaggle",
+                    "content": "Aute officia tempor deserunt eiusmod id reprehenderit eu eiusmod nostrud sint. Minim irure eu veniam mollit amet aute ipsum excepteur incididunt laboris cupidatat nostrud. Dolor veniam ex ipsum consectetur. Consequat duis ad proident aliqua incididunt duis do incididunt irure quis. Esse sint eu proident ad consequat culpa. Consequat laborum labore Lorem tempor laboris quis proident irure.",
+                    "comments": [
+                        {
+                            "username": "Burt",
+                            "city": "Emison",
+                            "email": "burtbarber@zaggle.com",
+                            "content": "Ad qui sit ullamco laborum sint elit id voluptate veniam in pariatur. Ullamco ex officia ut nisi exercitation commodo eiusmod consequat exercitation cupidatat. Sunt velit anim voluptate exercitation occaecat pariatur cupidatat. Labore excepteur esse ipsum nisi culpa aute. Voluptate reprehenderit sint pariatur laborum Lorem exercitation et."
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "name": "Geoform",
+                    "content": "Mollit reprehenderit nulla ullamco ullamco culpa sunt officia amet consequat et nisi magna laboris minim. Officia do deserunt nulla nulla cillum culpa fugiat est consequat enim deserunt sit fugiat consequat. Ipsum nostrud minim consequat magna veniam mollit nulla sunt ut nostrud dolore. Deserunt dolore fugiat sunt ad Lorem sint aliqua pariatur consequat do tempor ipsum amet. Ad ad anim sunt aute consequat nulla eu eu. Irure qui adipisicing labore culpa esse anim laborum.",
+                    "comments": [
+                        {
+                            "username": "Erin",
+                            "city": "Cartwright",
+                            "email": "erinbarber@geoform.com",
+                            "content": "Reprehenderit duis ad sunt aliqua est voluptate ullamco dolore nostrud eu sint exercitation pariatur. Ut fugiat ad exercitation ut occaecat ipsum sunt minim ut. Dolore qui dolor amet laborum consequat aliqua labore. Magna consequat sunt id ipsum consectetur est non eu. Aliqua nostrud laborum nostrud voluptate non est aute."
+                        },
+                        {
+                            "username": "Booth",
+                            "city": "Independence",
+                            "email": "boothbarber@geoform.com",
+                            "content": "Labore voluptate laboris consequat voluptate duis in sunt ut aliqua. In voluptate adipisicing ipsum dolore id culpa quis occaecat Lorem reprehenderit labore nisi Lorem ad. Culpa eiusmod nostrud et minim deserunt eu velit pariatur cupidatat incididunt duis dolor nostrud nisi. Lorem deserunt Lorem sint nulla cupidatat ea aliquip quis. Id consequat adipisicing non quis id anim aliqua culpa nisi dolore sunt minim."
+                        }
+                    ]
+                },
+                {
+                    "id": 3,
+                    "name": "Songbird",
+                    "content": "Ex ut nulla exercitation deserunt velit qui consectetur ad. Sit fugiat id dolore exercitation amet anim nostrud velit aliqua. Deserunt occaecat laboris enim anim duis irure eiusmod et aliqua veniam culpa do. Do adipisicing magna tempor sit ut mollit occaecat ipsum tempor amet ad ut ullamco quis. Eiusmod eiusmod ullamco deserunt incididunt irure sunt culpa anim nostrud nisi elit tempor est eu. Non pariatur amet culpa minim mollit quis excepteur ipsum sunt officia.",
+                    "comments": [
+                        {
+                            "username": "Jeanette",
+                            "city": "Edgar",
+                            "email": "jeanettebarber@songbird.com",
+                            "content": "Nostrud ullamco ad commodo voluptate proident esse consectetur ullamco proident. Culpa amet eiusmod aliquip elit culpa qui occaecat adipisicing ad sint minim. Pariatur ad enim aliqua enim dolor cupidatat qui ipsum exercitation veniam adipisicing. Exercitation ipsum proident sunt id deserunt. Ex sint laboris dolore ad eu elit et adipisicing."
+                        }
+                    ]
+                },
+                {
+                    "id": 4,
+                    "name": "Sarasonic",
+                    "content": "Pariatur consequat dolore cillum excepteur proident consectetur ullamco consectetur eu et ea. Dolor cillum enim non aliqua cupidatat aliqua ex. Nisi aliquip ullamco labore laborum tempor tempor occaecat anim ipsum nostrud. Lorem consectetur fugiat cupidatat exercitation. Adipisicing aliquip aute consequat amet ipsum laborum ipsum sunt. Proident nostrud labore amet non nisi ut.",
+                    "comments": [
+                        {
+                            "username": "Hancock",
+                            "city": "Levant",
+                            "email": "hancockbarber@sarasonic.com",
+                            "content": "Commodo ea exercitation officia culpa minim magna excepteur ad. Fugiat laborum sit do aliquip irure proident id veniam ea reprehenderit. Consectetur proident duis commodo ea ullamco eiusmod nulla non irure reprehenderit cupidatat. Consectetur esse enim nostrud quis laborum Lorem eu ut fugiat ut fugiat qui. Deserunt laborum est minim cillum exercitation culpa qui excepteur id elit duis minim nostrud."
+                        }
+                    ]
+                },
+                {
+                    "id": 5,
+                    "name": "Cognicode",
+                    "content": "Duis do cupidatat laborum non qui ea incididunt voluptate occaecat voluptate Lorem ad. Quis labore nostrud deserunt et nulla laborum consequat dolor enim elit elit aliquip voluptate. Do fugiat qui incididunt sunt in reprehenderit sunt velit eu. Nostrud magna adipisicing officia dolor. In elit incididunt fugiat excepteur enim elit excepteur aliquip in magna. Est adipisicing exercitation non exercitation enim cupidatat in exercitation eu.",
+                    "comments": [
+                        {
+                            "username": "Whitfield",
+                            "city": "Dixonville",
+                            "email": "whitfieldbarber@cognicode.com",
+                            "content": "Non qui ad eu commodo nulla fugiat sit duis sunt sint. Exercitation consectetur mollit id aliqua. Voluptate est dolore exercitation ad. Aute id sit cillum aliqua eu. Amet sint sunt occaecat dolor sint ex aliquip."
+                        }
+                    ]
+                }
+            ],
+            getPosts: function() {
+                return factory.posts;
             },
-            {
-                "id": 1,
-                "name": "Zaggle",
-                "content": "Aute officia tempor deserunt eiusmod id reprehenderit eu eiusmod nostrud sint. Minim irure eu veniam mollit amet aute ipsum excepteur incididunt laboris cupidatat nostrud. Dolor veniam ex ipsum consectetur. Consequat duis ad proident aliqua incididunt duis do incididunt irure quis. Esse sint eu proident ad consequat culpa. Consequat laborum labore Lorem tempor laboris quis proident irure.",
-                "comments": [
-                    {
-                        "username": "Burt",
-                        "city": "Emison",
-                        "email": "burtbarber@zaggle.com",
-                        "content": "Ad qui sit ullamco laborum sint elit id voluptate veniam in pariatur. Ullamco ex officia ut nisi exercitation commodo eiusmod consequat exercitation cupidatat. Sunt velit anim voluptate exercitation occaecat pariatur cupidatat. Labore excepteur esse ipsum nisi culpa aute. Voluptate reprehenderit sint pariatur laborum Lorem exercitation et."
+            getPost: function(id){
+                var post = {};
+                angular.forEach(factory.posts, function(value, key) {
+                    if(value.id == id) {
+                        post = value;
                     }
-                ]
+                });
+                return post;
             },
-            {
-                "id": 2,
-                "name": "Geoform",
-                "content": "Mollit reprehenderit nulla ullamco ullamco culpa sunt officia amet consequat et nisi magna laboris minim. Officia do deserunt nulla nulla cillum culpa fugiat est consequat enim deserunt sit fugiat consequat. Ipsum nostrud minim consequat magna veniam mollit nulla sunt ut nostrud dolore. Deserunt dolore fugiat sunt ad Lorem sint aliqua pariatur consequat do tempor ipsum amet. Ad ad anim sunt aute consequat nulla eu eu. Irure qui adipisicing labore culpa esse anim laborum.",
-                "comments": [
-                    {
-                        "username": "Erin",
-                        "city": "Cartwright",
-                        "email": "erinbarber@geoform.com",
-                        "content": "Reprehenderit duis ad sunt aliqua est voluptate ullamco dolore nostrud eu sint exercitation pariatur. Ut fugiat ad exercitation ut occaecat ipsum sunt minim ut. Dolore qui dolor amet laborum consequat aliqua labore. Magna consequat sunt id ipsum consectetur est non eu. Aliqua nostrud laborum nostrud voluptate non est aute."
-                    },
-                    {
-                        "username": "Booth",
-                        "city": "Independence",
-                        "email": "boothbarber@geoform.com",
-                        "content": "Labore voluptate laboris consequat voluptate duis in sunt ut aliqua. In voluptate adipisicing ipsum dolore id culpa quis occaecat Lorem reprehenderit labore nisi Lorem ad. Culpa eiusmod nostrud et minim deserunt eu velit pariatur cupidatat incididunt duis dolor nostrud nisi. Lorem deserunt Lorem sint nulla cupidatat ea aliquip quis. Id consequat adipisicing non quis id anim aliqua culpa nisi dolore sunt minim."
-                    }
-                ]
-            },
-            {
-                "id": 3,
-                "name": "Songbird",
-                "content": "Ex ut nulla exercitation deserunt velit qui consectetur ad. Sit fugiat id dolore exercitation amet anim nostrud velit aliqua. Deserunt occaecat laboris enim anim duis irure eiusmod et aliqua veniam culpa do. Do adipisicing magna tempor sit ut mollit occaecat ipsum tempor amet ad ut ullamco quis. Eiusmod eiusmod ullamco deserunt incididunt irure sunt culpa anim nostrud nisi elit tempor est eu. Non pariatur amet culpa minim mollit quis excepteur ipsum sunt officia.",
-                "comments": [
-                    {
-                        "username": "Jeanette",
-                        "city": "Edgar",
-                        "email": "jeanettebarber@songbird.com",
-                        "content": "Nostrud ullamco ad commodo voluptate proident esse consectetur ullamco proident. Culpa amet eiusmod aliquip elit culpa qui occaecat adipisicing ad sint minim. Pariatur ad enim aliqua enim dolor cupidatat qui ipsum exercitation veniam adipisicing. Exercitation ipsum proident sunt id deserunt. Ex sint laboris dolore ad eu elit et adipisicing."
-                    }
-                ]
-            },
-            {
-                "id": 4,
-                "name": "Sarasonic",
-                "content": "Pariatur consequat dolore cillum excepteur proident consectetur ullamco consectetur eu et ea. Dolor cillum enim non aliqua cupidatat aliqua ex. Nisi aliquip ullamco labore laborum tempor tempor occaecat anim ipsum nostrud. Lorem consectetur fugiat cupidatat exercitation. Adipisicing aliquip aute consequat amet ipsum laborum ipsum sunt. Proident nostrud labore amet non nisi ut.",
-                "comments": [
-                    {
-                        "username": "Hancock",
-                        "city": "Levant",
-                        "email": "hancockbarber@sarasonic.com",
-                        "content": "Commodo ea exercitation officia culpa minim magna excepteur ad. Fugiat laborum sit do aliquip irure proident id veniam ea reprehenderit. Consectetur proident duis commodo ea ullamco eiusmod nulla non irure reprehenderit cupidatat. Consectetur esse enim nostrud quis laborum Lorem eu ut fugiat ut fugiat qui. Deserunt laborum est minim cillum exercitation culpa qui excepteur id elit duis minim nostrud."
-                    }
-                ]
-            },
-            {
-                "id": 5,
-                "name": "Cognicode",
-                "content": "Duis do cupidatat laborum non qui ea incididunt voluptate occaecat voluptate Lorem ad. Quis labore nostrud deserunt et nulla laborum consequat dolor enim elit elit aliquip voluptate. Do fugiat qui incididunt sunt in reprehenderit sunt velit eu. Nostrud magna adipisicing officia dolor. In elit incididunt fugiat excepteur enim elit excepteur aliquip in magna. Est adipisicing exercitation non exercitation enim cupidatat in exercitation eu.",
-                "comments": [
-                    {
-                        "username": "Whitfield",
-                        "city": "Dixonville",
-                        "email": "whitfieldbarber@cognicode.com",
-                        "content": "Non qui ad eu commodo nulla fugiat sit duis sunt sint. Exercitation consectetur mollit id aliqua. Voluptate est dolore exercitation ad. Aute id sit cillum aliqua eu. Amet sint sunt occaecat dolor sint ex aliquip."
-                    }
-                ]
-            }
-        ];
-    })
+        };
+        return factory;
+    });*/
+
+
+    //service
+    app.service('PostFactory',function(){
+        var that = this;
+        that.posts = [
+                {
+                    "id": 0,
+                    "name": "Hometown",
+                    "content": "Commodo culpa aute voluptate dolore incididunt. Nulla laboris mollit aute consequat laborum do magna amet cupidatat eu dolor in commodo dolore. Qui consectetur fugiat tempor esse anim consectetur est. Aliqua nostrud aliqua cillum proident do ad dolore consequat. Fugiat ea tempor adipisicing enim occaecat do magna duis minim ullamco incididunt aute. In ea Lorem amet culpa exercitation enim fugiat amet ex est et mollit eiusmod.",
+                    "comments": [
+                        {
+                            "username": "Natalie",
+                            "city": "Baker",
+                            "email": "nataliebarber@hometown.com",
+                            "content": "Irure duis dolore pariatur ullamco anim qui anim aute enim. Eu ut anim ad aute aliquip sunt cupidatat consectetur deserunt mollit duis fugiat dolor. Quis mollit amet id magna id minim reprehenderit qui dolor consectetur. Nisi proident veniam cillum ullamco ea ad. Ut veniam excepteur id et cupidatat qui ex ea irure nulla magna qui nostrud."
+                        },
+                        {
+                            "username": "Stanley",
+                            "city": "Condon",
+                            "email": "stanleybarber@hometown.com",
+                            "content": "Nostrud ipsum ex eu adipisicing consectetur. Amet minim voluptate deserunt adipisicing voluptate irure ipsum magna sit velit sunt do voluptate sunt. Minim laborum reprehenderit adipisicing laborum reprehenderit consequat excepteur occaecat do consequat id. Nisi fugiat cillum veniam velit do labore tempor mollit nulla velit voluptate. Aliqua amet sunt magna nisi dolor."
+                        },
+                        {
+                            "username": "Byers",
+                            "city": "Rote",
+                            "email": "byersbarber@hometown.com",
+                            "content": "Labore officia elit nisi consectetur nostrud ut. Eiusmod dolore laborum velit nulla dolore proident duis labore officia veniam. Incididunt nostrud qui cupidatat ad minim amet. Exercitation magna fugiat nulla duis laborum magna non est aliqua ullamco magna adipisicing sunt pariatur. Sit magna fugiat ex duis velit velit veniam."
+                        }
+                    ]
+                },
+                {
+                    "id": 1,
+                    "name": "Zaggle",
+                    "content": "Aute officia tempor deserunt eiusmod id reprehenderit eu eiusmod nostrud sint. Minim irure eu veniam mollit amet aute ipsum excepteur incididunt laboris cupidatat nostrud. Dolor veniam ex ipsum consectetur. Consequat duis ad proident aliqua incididunt duis do incididunt irure quis. Esse sint eu proident ad consequat culpa. Consequat laborum labore Lorem tempor laboris quis proident irure.",
+                    "comments": [
+                        {
+                            "username": "Burt",
+                            "city": "Emison",
+                            "email": "burtbarber@zaggle.com",
+                            "content": "Ad qui sit ullamco laborum sint elit id voluptate veniam in pariatur. Ullamco ex officia ut nisi exercitation commodo eiusmod consequat exercitation cupidatat. Sunt velit anim voluptate exercitation occaecat pariatur cupidatat. Labore excepteur esse ipsum nisi culpa aute. Voluptate reprehenderit sint pariatur laborum Lorem exercitation et."
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "name": "Geoform",
+                    "content": "Mollit reprehenderit nulla ullamco ullamco culpa sunt officia amet consequat et nisi magna laboris minim. Officia do deserunt nulla nulla cillum culpa fugiat est consequat enim deserunt sit fugiat consequat. Ipsum nostrud minim consequat magna veniam mollit nulla sunt ut nostrud dolore. Deserunt dolore fugiat sunt ad Lorem sint aliqua pariatur consequat do tempor ipsum amet. Ad ad anim sunt aute consequat nulla eu eu. Irure qui adipisicing labore culpa esse anim laborum.",
+                    "comments": [
+                        {
+                            "username": "Erin",
+                            "city": "Cartwright",
+                            "email": "erinbarber@geoform.com",
+                            "content": "Reprehenderit duis ad sunt aliqua est voluptate ullamco dolore nostrud eu sint exercitation pariatur. Ut fugiat ad exercitation ut occaecat ipsum sunt minim ut. Dolore qui dolor amet laborum consequat aliqua labore. Magna consequat sunt id ipsum consectetur est non eu. Aliqua nostrud laborum nostrud voluptate non est aute."
+                        },
+                        {
+                            "username": "Booth",
+                            "city": "Independence",
+                            "email": "boothbarber@geoform.com",
+                            "content": "Labore voluptate laboris consequat voluptate duis in sunt ut aliqua. In voluptate adipisicing ipsum dolore id culpa quis occaecat Lorem reprehenderit labore nisi Lorem ad. Culpa eiusmod nostrud et minim deserunt eu velit pariatur cupidatat incididunt duis dolor nostrud nisi. Lorem deserunt Lorem sint nulla cupidatat ea aliquip quis. Id consequat adipisicing non quis id anim aliqua culpa nisi dolore sunt minim."
+                        }
+                    ]
+                },
+                {
+                    "id": 3,
+                    "name": "Songbird",
+                    "content": "Ex ut nulla exercitation deserunt velit qui consectetur ad. Sit fugiat id dolore exercitation amet anim nostrud velit aliqua. Deserunt occaecat laboris enim anim duis irure eiusmod et aliqua veniam culpa do. Do adipisicing magna tempor sit ut mollit occaecat ipsum tempor amet ad ut ullamco quis. Eiusmod eiusmod ullamco deserunt incididunt irure sunt culpa anim nostrud nisi elit tempor est eu. Non pariatur amet culpa minim mollit quis excepteur ipsum sunt officia.",
+                    "comments": [
+                        {
+                            "username": "Jeanette",
+                            "city": "Edgar",
+                            "email": "jeanettebarber@songbird.com",
+                            "content": "Nostrud ullamco ad commodo voluptate proident esse consectetur ullamco proident. Culpa amet eiusmod aliquip elit culpa qui occaecat adipisicing ad sint minim. Pariatur ad enim aliqua enim dolor cupidatat qui ipsum exercitation veniam adipisicing. Exercitation ipsum proident sunt id deserunt. Ex sint laboris dolore ad eu elit et adipisicing."
+                        }
+                    ]
+                },
+                {
+                    "id": 4,
+                    "name": "Sarasonic",
+                    "content": "Pariatur consequat dolore cillum excepteur proident consectetur ullamco consectetur eu et ea. Dolor cillum enim non aliqua cupidatat aliqua ex. Nisi aliquip ullamco labore laborum tempor tempor occaecat anim ipsum nostrud. Lorem consectetur fugiat cupidatat exercitation. Adipisicing aliquip aute consequat amet ipsum laborum ipsum sunt. Proident nostrud labore amet non nisi ut.",
+                    "comments": [
+                        {
+                            "username": "Hancock",
+                            "city": "Levant",
+                            "email": "hancockbarber@sarasonic.com",
+                            "content": "Commodo ea exercitation officia culpa minim magna excepteur ad. Fugiat laborum sit do aliquip irure proident id veniam ea reprehenderit. Consectetur proident duis commodo ea ullamco eiusmod nulla non irure reprehenderit cupidatat. Consectetur esse enim nostrud quis laborum Lorem eu ut fugiat ut fugiat qui. Deserunt laborum est minim cillum exercitation culpa qui excepteur id elit duis minim nostrud."
+                        }
+                    ]
+                },
+                {
+                    "id": 5,
+                    "name": "Cognicode",
+                    "content": "Duis do cupidatat laborum non qui ea incididunt voluptate occaecat voluptate Lorem ad. Quis labore nostrud deserunt et nulla laborum consequat dolor enim elit elit aliquip voluptate. Do fugiat qui incididunt sunt in reprehenderit sunt velit eu. Nostrud magna adipisicing officia dolor. In elit incididunt fugiat excepteur enim elit excepteur aliquip in magna. Est adipisicing exercitation non exercitation enim cupidatat in exercitation eu.",
+                    "comments": [
+                        {
+                            "username": "Whitfield",
+                            "city": "Dixonville",
+                            "email": "whitfieldbarber@cognicode.com",
+                            "content": "Non qui ad eu commodo nulla fugiat sit duis sunt sint. Exercitation consectetur mollit id aliqua. Voluptate est dolore exercitation ad. Aute id sit cillum aliqua eu. Amet sint sunt occaecat dolor sint ex aliquip."
+                        }
+                    ]
+                }
+            ];
+
+        that.getPosts = function() {
+            return that.posts;
+        };
+
+        that.getPost = function(id){
+            var post = {};
+            angular.forEach(that.posts, function(value, key) {
+                if(value.id == id) {
+                    post = value;
+                }
+            });
+            return post;
+        };
+
+    });
+
+    app.controller('PostsCtrl',function($scope,PostFactory){
+        $scope.posts= PostFactory.getPosts();
+    });
+
+    app.controller('CommentsCtrl', function($scope,PostFactory,$routeParams) {
+        console.log($routeParams);
+        console.log(PostFactory.getPost($routeParams));
+        var post = PostFactory.getPost($routeParams.id);
+        $scope.title = post.name;
+        $scope.comments = post.comments;
+
+    });
+
 
 </script>
 </body>
