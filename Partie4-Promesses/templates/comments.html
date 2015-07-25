@@ -1,0 +1,25 @@
+<div ng-show="loading">Chargement ...</div>
+
+<div ng-hide="loading">
+    <a href="#/">Revenir aux articles</a>
+    <h1> Article : {{title}}</h1>
+    <p>
+        Rechercher un commentaire:
+        <input type="text" ng-model="query"/>
+
+        - Trier par:
+        <select ng-model="order">
+            <option value="username"> nom</option>
+            <option value="content"> contenu</option>
+        </select>
+    </p>
+
+
+
+    <div ng-repeat="comment in comments | filter:{content:query} | orderBy:order">
+        <p>
+            <strong>{{comment.username | uppercase}}</strong><br/>
+            {{comment.content}}
+        </p>
+    </div>
+</div>
